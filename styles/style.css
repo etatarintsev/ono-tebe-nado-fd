@@ -191,9 +191,9 @@
 }
 
 .bet-button {
-  border: none;
+  border: 1px solid #fff;
   padding: 0;
-  color: inherit;
+  color: #fff;
   background-color: transparent;
   cursor: pointer;
   display: flex;
@@ -201,8 +201,6 @@
   align-items: center;
   width: 256px;
   height: 51px;
-  border: 1px solid #fff;
-  color: #fff;
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
