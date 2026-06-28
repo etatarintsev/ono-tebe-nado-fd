@@ -1,15 +1,16 @@
 /* ===== Шапка ===== */
+/* Grid: меню — левая колонка, логотип — центр, адрес — правая */
 .header {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: start;
   width: 1100px;
   height: 293px;
-  margin: 0;
+  padding: 0 50px;
 }
 
 .header__menu {
-  position: absolute;
-  top: 133px;
-  left: 50px;
+  margin-top: 133px;
 }
 
 .header__links-list {
@@ -19,28 +20,10 @@
 }
 
 .header__links-list-item {
-  position: relative;
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
-  list-style: none;
-}
-
-/* Для bullet в виде кружка перед вторым и третьим пунктом меню */
-/* Без content: "" не будет отображаться псевдоэлемент ::before */
-.header__links-list-item:nth-child(2)::before,
-.header__links-list-item:nth-child(3)::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -19px;
-  box-sizing: border-box;
-  width: 6px;
-  height: 6px;
-  border: 0.5px solid #000;
-  border-radius: 50%;
-  background-color: #fff;
-  transform: translateY(-50%);
+  list-style: circle;
 }
 
 .header__links-list-item_no-bullit {
@@ -58,11 +41,8 @@
 }
 
 .header__logo {
-  position: absolute;
-  top: 92px;
-  left: 50%;
-  margin-left: -72px;
-  display: block;
+  justify-self: center;
+  margin-top: 92px;
   width: 148px;
   height: 105px;
 }
@@ -74,19 +54,12 @@
 }
 
 .header__address {
-  position: absolute;
-  top: 95px;
-  left: 810px;
+  justify-self: end;
+  margin-top: 95px;
   width: 240px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-style: normal;
-}
-
-.header__address a {
-  display: inline-block;
-  border-bottom: 1px solid #000;
 }
 
 .address {
@@ -97,14 +70,19 @@
 }
 
 .address a {
+  display: inline-block;
+  border-bottom: 1px solid #000;
   text-decoration: none;
 }
 
 /* ===== Обложка ===== */
 .cover {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 1100px;
-  height: 757px;
+  min-height: 757px;
+  padding: 165px 50px 50px;
   background-image: url("../images/cover.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -119,13 +97,12 @@
   background-color: rgb(0 0 0 / 0.6);
 }
 
+/* Заголовок — flex-column, слова выровнены по-разному через модификаторы */
 .cover__title {
-  position: absolute;
   z-index: 2;
-  top: 165px;
-  left: 50px;
-  width: 1000px;
-  height: 385px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   color: #fff;
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -136,28 +113,14 @@
 }
 
 .aligned-text {
-  position: absolute;
   display: block;
-  height: 115px;
-}
-
-.aligned-text_left {
-  top: 0;
-  left: 0;
-  width: 286px;
 }
 
 .aligned-text_center {
-  top: 135px;
-  left: 330.5px;
-  width: 339px;
   text-align: center;
 }
 
 .aligned-text_right {
-  top: 270px;
-  left: 613px;
-  width: 387px;
   text-align: right;
 }
 
@@ -169,16 +132,13 @@
   letter-spacing: 0;
 }
 
-/* Блок подзаголовка и кнопки внизу обложки */
+/* Блок подзаголовка и кнопки внизу обложки — margin-top: auto прижимает к низу */
 .cover__description {
-  position: absolute;
   z-index: 2;
-  top: 656px;
-  left: 50px;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1000px;
 }
 
 .cover__description-text {
@@ -200,7 +160,7 @@
   justify-content: center;
   align-items: center;
   width: 256px;
-  height: 51px;
+  min-height: 51px;
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
@@ -212,7 +172,6 @@
   display: flex;
   flex-direction: column;
   width: 1052px;
-  height: 723px;
   margin: 180px 24px 0;
 }
 
@@ -235,7 +194,6 @@
 .lots__card-list-item {
   width: 334px;
   min-height: 596px;
-  list-style: none;
 }
 
 .card-link {
@@ -373,11 +331,6 @@
   align-items: flex-start;
 }
 
-.footer .address a {
-  display: inline-block;
-  border-bottom: 1px solid #000;
-}
-
 .footer__menu {
   justify-self: center;
 }
@@ -390,7 +343,6 @@
 }
 
 .footer__menu-list-item {
-  list-style: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
@@ -411,10 +363,6 @@
   justify-content: flex-end;
   gap: 48px;
   justify-self: end;
-  list-style: none;
-}
-
-.footer__social-list-item {
   list-style: none;
 }
 
